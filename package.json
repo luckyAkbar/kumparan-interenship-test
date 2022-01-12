@@ -4,7 +4,7 @@
   "description": "Made to fulfill interenship process",
   "main": "index.js",
   "scripts": {
-    "start-post-dev-server": "nodemon index.js",
+    "start-dev-server": "nodemon index.js",
     "integration-testing": "node ./test/integrationTest.js"
   },
   "author": "Lucky Akbar",
