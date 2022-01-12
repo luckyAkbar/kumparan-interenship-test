@@ -1,0 +1,22 @@
+{
+  "name": "kumparan-internship-test",
+  "version": "1.0.0",
+  "description": "Made to fulfill interenship process",
+  "main": "index.js",
+  "scripts": {
+    "start-post-dev-server": "nodemon index.js",
+    "integration-testing": "node ./test/integrationTest.js"
+  },
+  "author": "Lucky Akbar",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "pg": "^8.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
