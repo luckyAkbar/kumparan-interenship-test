@@ -48,3 +48,43 @@
       - Register your running server in server list
       - Everytime user hits your reverse proxy, Nginx will automatically distribute the load to every server listed in server list. So, you client will not have to wait just like in a queue!
       - Using this technique will also increase scalability, because you just have to start a new server, and then register it in the load balancer if the traffic is high.
+
+### Step to run this app
+1. Install NodeJS
+2. Install Postgresql
+3. Clone / Pull this repo
+4. Run: npm install
+5. Install PM2
+6. Install Nginx
+7. Run this server multiple times on different ports
+8. Register all the running server on Nginx server list
+9. App ready to use
+
+
+
+##### Note:
+- You can setup Nginx to be a reverse proxy and a load balancer using this setup:
+```
+  log_format upstreamlog '$server_name to: $upstream_addr [$request] '
+          'upstream_response_time $upstream_response_time '
+          'msec $msec request_time $request_time';
+
+  upstream notes {
+          server localhost:6000; # List all your running server here
+          server localhost:7000;
+          server localhost:8000;
+  }
+
+  server {
+          listen 10000;
+          server_name www.luckyakbar.tech;
+          access_log /var/log/nginx/access_lb.log upstreamlog;
+
+          location / {
+                  proxy_pass http://notes;
+                  proxy_http_version 1.1;
+                  proxy_set_header Upgrade $http_upgrade;
+                  proxy_set_header Connection "upgrade";
+          }
+  }
+```
