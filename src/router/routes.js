@@ -10,4 +10,9 @@ router.route('/create/article')
 router.route('/find/article')
   .get(getArticle);
 
+router.route('*')
+  .all((req, res) => {
+    res.end('<h1>Not Found. Please refer to our documentation.</h1>');
+  })
+
 module.exports = router;
