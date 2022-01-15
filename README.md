@@ -3,6 +3,9 @@
 
 ### This Repository was build to fulfill internship @ Kumparan X Kampus Merdeka
 
+### Live Version
+This app already deployed on: https://luckyakbar.tech/kumparanTest
+
 ### What is inside this app?
   1. Create new article
       - route: '/create/article'
